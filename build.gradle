@@ -1,3 +1,29 @@
 plugins {
-    id 'com.android.application' version '8.7.3' apply false
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.panvkwsi'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.example.panvkwsi'
+        minSdk 29
+        targetSdk 35
+        versionCode 1
+        versionName '1.0'
+        externalNativeBuild {
+            cmake {
+                cppFlags '-std=c++17 -Wall -Wextra'
+            }
+        }
+        ndkVersion '27.2.12479018'
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
 }
